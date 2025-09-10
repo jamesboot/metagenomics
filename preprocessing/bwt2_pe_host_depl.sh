@@ -11,15 +11,13 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=128G
 #SBATCH --partition=ncpu
-#SBATCH --array=1-8
+#SBATCH --array=1-5
 
 # Input files and directories
-PROJDIR=/nemo/stp/babs/working/bootj/projects/walle/marianne.shawetaylor/ms816
-ANALYSISDIR=${PROJDIR}/...
-TRIMDIR=${PROJDIR}/trim
-SAMPLESHEET=${TRIMDIR}/samplesheet.csv
-GENOME=/nemo/stp/babs/reference/Genomics/babs/homo_sapiens/ensembl/GRCh38/release-95/genome_idx/bowtie2/Homo_sapiens.GRCh38.dna_sm.primary_assembly
-OUTPUT_DIR=${PROJDIR}/bowtie2
+PROJDIR=/nemo/stp/babs/working/bootj/projects/riglard/will.mckenny/wm949
+SAMPLESHEET=${PROJDIR}/data/sample-sheets/trim_samplesheet.csv
+GENOME=/nemo/stp/babs/reference/Genomics/babs/mus_musculus/ensembl/GRCm38/release-95/genome_idx/bowtie2/Mus_musculus.GRCm38.dna_sm.toplevel
+OUTPUT_DIR=${PROJDIR}/analysis/standard_template/outputs/bowtie2
 
 # Specify the parameters file containing sample names 
 SAMPLE=$(sed -n "${SLURM_ARRAY_TASK_ID}p" ${SAMPLESHEET} | cut -d ',' -f 1)
