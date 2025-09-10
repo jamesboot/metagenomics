@@ -33,6 +33,9 @@ echo "SAMPLE: ${SAMPLE}"
 echo "R1: ${R1}"
 echo "R2: ${R2}"
 
+# Create output directory if it doesn't exist
+mkdir -p ${OUTPUT_DIR}
+
 # Run bowtie2
 echo "Running bowtie2..."
 bowtie2 -p ${SLURM_CPUS_PER_TASK} -x ${GENOME} \
