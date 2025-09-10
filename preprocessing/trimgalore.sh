@@ -9,14 +9,14 @@
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=128G
 #SBATCH --partition=ncpu
-#SBATCH --array=1-8
+#SBATCH --array=1-5
 
 # Specify input file
-PROJDIR=/nemo/stp/babs/working/bootj/projects/walle/marianne.shawetaylor/ms816
-INPUT=${PROJDIR}/samplesheet.csv
+PROJDIR=/nemo/stp/babs/working/bootj/projects/riglard/will.mckenny/wm949
+INPUT=${PROJDIR}/data/sample-sheets/samplesheet.csv
 
 # Specify output folders
-OUTS=${PROJDOR}/trim
+OUTS=${PROJDIR}/analysis/standard_template/outputs/trim
 mkdir -p ${OUTS}
 
 # Specify the parameters file containing sample names 
@@ -46,6 +46,6 @@ trim_galore \
 bash /nemo/stp/babs/working/bootj/github/utilities/samplesheet.sh \
     -d ${OUTS} \
     -n \
-    -o ${OUTS}/samplesheet.csv \
+    -o ${PROJDIR}/data/sample-sheets/trim_samplesheet.csv \
     -1 _1.fq.gz \
     -2 _2.fq.gz
