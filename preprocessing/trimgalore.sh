@@ -6,6 +6,7 @@
 
 #SBATCH --job-name=trimgalore
 #SBATCH --time=3-00:00:00
+#SBATCH --output=../logs/trimgalore-%j.txt
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=128G
 #SBATCH --partition=ncpu

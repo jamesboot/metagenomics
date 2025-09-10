@@ -6,6 +6,7 @@
 # Run trimgalore first to generate samplesheet.csv and trim reads
 
 #SBATCH --job-name=bowtie2_pe_host_depl
+#SBATCH --output=../logs/bowtie2_pe_host_depl-%j.txt
 #SBATCH --time=6-00:00:00
 #SBATCH --cpus-per-task=4
 #SBATCH --mem=128G
