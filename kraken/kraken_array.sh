@@ -11,7 +11,7 @@
 # Specify input and output directories/files
 PROJDIR=/nemo/stp/babs/working/bootj/projects/riglard/will.mckenny/wm949
 INPUT=${PROJDIR}/data/sample-sheets/samplesheet.csv
-DBNAME=${PROJDIR}/data/external/kraken_standard_db
+DBNAME=/nemo/stp/babs/working/bootj/genomes/kraken2
 FASTQDIR=${PROJDIR}/analysis/standard_template/outputs/bowtie2
 META_OUTS=${PROJDIR}/analysis/standard_template/outputs/kraken
 
@@ -36,9 +36,8 @@ source activate kraken2
 
 # Run kraken2
 kraken2 --db ${DBNAME} \
-    --threads ${SLURM_CPUS_PER_TASK} \
-    --fastq-input \
-    --gzip-compressed \ 
-    --paired \
-    --report ${META_OUTS}/${SAMPLE}_report.txt \
-    ${R1} ${R2} > ${META_OUTS}/${SAMPLE}.kraken
+--threads ${SLURM_CPUS_PER_TASK} \
+--gzip-compressed \
+--paired \
+--report ${META_OUTS}/${SAMPLE}_report.txt \
+${R1} ${R2} > ${META_OUTS}/${SAMPLE}.kraken
