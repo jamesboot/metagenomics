@@ -6,14 +6,15 @@
 #SBATCH --mem=128G
 #SBATCH --partition=ncpu
 #SBATCH --ntasks=1
-#SBATCH --mail-type=BEGIN,END
-#SBATCH --mail-user=james.boot@crick.ac.uk
+
+# Specify project directory and output folder
+PROJDIR=/nemo/stp/babs/working/bootj/projects/riglard/will.mckenny/wm949
+OUTS=${PROJDIR}/data/external/kraken_standard_db
 
 # Load Anaconda module
 ml Anaconda3/2023.09-0
 
-# Specify output folder
-OUTS=kraken_standard_db
+# Create output folder
 mkdir -p ${OUTS}
 
 # Activate env
